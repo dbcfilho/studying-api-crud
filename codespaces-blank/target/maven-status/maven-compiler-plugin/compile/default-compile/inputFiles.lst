@@ -1,0 +1,5 @@
+/home/devbrum/IdeaProjects/codespaces-blank/src/main/java/com/example/crud/crud/CrudApplication.java
+/home/devbrum/IdeaProjects/codespaces-blank/src/main/java/com/example/crud/crud/controller/ProdutoController.java
+/home/devbrum/IdeaProjects/codespaces-blank/src/main/java/com/example/crud/crud/model/Produto.java
+/home/devbrum/IdeaProjects/codespaces-blank/src/main/java/com/example/crud/crud/repository/ProdutoRepository.java
+/home/devbrum/IdeaProjects/codespaces-blank/src/main/java/com/example/crud/crud/service/ProdutoService.java

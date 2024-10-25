@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratório de Senhas</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-section, .right-section {
+            width: 48%;
+        }
+
+        .header, .footer {
+            text-align: center;
+            background-color: #be5b18;
+            color: #000000;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .main-info {
+            text-align: center;
+            background-color: #be5b18;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-info h1 {
+            margin: 0;
+            font-size: 48px;
+            color: #2c0ba1;
+        }
+
+        .main-info p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .called-queue {
+            display: flex;
+            flex-direction: column;
+            background-color: #be5b18;
+            padding: 10px;
+            border: 1px solid #be5b18;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .called-queue div {
+            text-align: center;
+            padding: 5px;
+            color: #FFF;
+        }
+
+        .patient-info {
+            margin-bottom: 20px;
+            background-color: #F7F7F7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .patient-info h2 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .patient-info p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .specialists {
+            display: flex;
+            justify-content: space-between;
+            background-color: #FFF;
+            padding: 10px;
+            border: 1px solid #DDD;
+            border-radius: 8px;
+        }
+
+        .specialists div {
+            text-align: center;
+            flex: 1;
+        }
+
+        .specialists div p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #fdfdfd;
+        }
+
+        .input-section {
+            margin-top: 20px;
+        }
+
+        .input-section input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-section select {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-section button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #be5b18;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .input-section button:hover {
+            background-color: #a65c1c;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <p>Centro Médico TESTE</p>
+</div>
+<div class="container">
+    <div class="left-section">
+        <div class="main-info">
+            <h1 id="currentPassword">AB104</h1>
+            <p id="currentSpecialty">Guichê: 1</p>
+        </div>
+        <div class="called-queue" id="calledQueue">
+            <div><p>Fila de Senhas Chamadas:</p></div>
+        </div>
+        <div class="patient-info">
+            <h2>Paciente</h2>
+            <p><strong>Nome:</strong> Raphael Amaral</p>
+            <p><strong>Atendimento:</strong> Ortopedia</p>
+            <p><strong>Sala:</strong> 7</p>
+            <p><strong>Especialista:</strong> Dr. Elon Musk</p>
+        </div>
+
+        <div class="input-section">
+            <h2>Cadastrar Senha</h2>
+            <input type="text" id="newPassword" placeholder="Digite a nova senha">
+            <input type="text" id="patientName" placeholder="Nome do Paciente">
+            <input type="text" id="specialty" placeholder="Especialidade">
+            <select id="roomSelect">
+                <option value="1">Guichê: 1</option>
+                <option value="2">Guichê: 2</option>
+                <option value="3">Guichê: 3</option>
+                <option value="4">Guichê: 4</option>
+            </select>
+            <button onclick="addPassword()">Cadastrar</button>
+            <button onclick="callNextPassword()">Chamar Próxima Senha</button>
+        </div>
+    </div>
+    <div class="right-section">
+        <img src="path/to/image.jpg" alt="Imagem dos Vingadores" style="width: 100%; border-radius: 8px;">
+        <div class="specialists">
+            <div>
+                <p><strong>Sala: 4</strong></p>
+                <p>Isaac Newton</p>
+                <p>Cardiologia</p>
+            </div>
+            <div>
+                <p><strong>Sala: 6</strong></p>
+                <p>Albert Einstein</p>
+                <p>Neurologia</p>
+            </div>
+            <div>
+                <p><strong>Sala: 2</strong></p>
+                <p>Steve Jobs</p>
+                <p>Ortopedia</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>14:53:22 | Sábado, 31 de agosto de 2024.</p>
+</div>
+
+<script>
+    let passwordQueue = [];
+
+    function addPassword() {
+        const passwordInput = document.getElementById('newPassword').value.trim();
+        const patientName = document.getElementById('patientName').value.trim();
+        const specialty = document.getElementById('specialty').value.trim();
+        const room = document.getElementById('roomSelect').value;
+
+        if (passwordInput && patientName && specialty) {
+            const passwordData = {
+                password: passwordInput,
+                name: patientName,
+                specialty: specialty,
+                room: room
+            };
+            passwordQueue.push(passwordData);
+            document.getElementById('newPassword').value = ''; // Limpa o campo de entrada
+            document.getElementById('patientName').value = '';
+            document.getElementById('specialty').value = '';
+            updateQueueDisplay();
+        } else {
+            alert('Por favor, preencha todos os campos.');
+        }
+    }
+
+    function callNextPassword() {
+        if (passwordQueue.length > 0) {
+            const nextPassword = passwordQueue.shift();
+            document.getElementById('currentPassword').innerText = nextPassword.password;
+            document.getElementById('currentSpecialty').innerText = `Sala: ${nextPassword.room} | Especialidade: ${nextPassword.specialty}`;
+            updateQueueDisplay();
+            speakPassword(nextPassword);
+        } else {
+            alert('Não há senhas para chamar.');
+        }
+    }
+
+    function updateQueueDisplay() {
+        const calledQueueDiv = document.getElementById('calledQueue');
+        calledQueueDiv.innerHTML = '<div><p>Fila de Senhas Chamadas:</p></div>'; // Resetando a exibição
+        passwordQueue.forEach((item, index) => {
+            calledQueueDiv.innerHTML += `<div><p>${item.password}</p><p>${item.name} - ${item.specialty}</p><p>Guichê: ${item.room}</p></div>`;
+        });
+    }
+
+    function speakPassword(nextPassword) {
+        const utterance = new SpeechSynthesisUtterance(`Senha ${nextPassword.password} chamada para ${nextPassword.name}, especialidade ${nextPassword.specialty}, guichê ${nextPassword.room}.`);
+        window.speechSynthesis.speak(utterance);
+    }
+</script>
+</body>
+</html>
